@@ -4,10 +4,10 @@ export default class GameSavingLoader {
     }
 
     load() {
-        return new Promise((resolve, reject) => {
+        new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
             },1000)
         })
     }
-} 
+}  

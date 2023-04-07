@@ -6,13 +6,12 @@ const gameSavingLoader = new GameSavingLoader()
 
 async function main() {
     try{
+        await gameSavingLoader.load();
+        const saving = await read();
+        await gameSavingLoader.load();
+        const jsonString = await json(saving);
         await gameSavingLoader.load()
-        const saving = read()
-        await gameSavingLoader.load()
-        const jsonString = json(saving)
-        console.log(jsonString)
-        // await gameSavingLoader.load()
-        // gameSavingLoader.gameSaving = JSON.parse(jsonString)
+        gameSavingLoader.gameSaving = JSON.parse(jsonString)
     }
     catch(error) {
         console.log(error)
@@ -22,6 +21,6 @@ async function main() {
     }  
 }
 
-main()
+main() 
 
 
