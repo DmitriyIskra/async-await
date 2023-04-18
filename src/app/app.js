@@ -1,14 +1,11 @@
-import read from './reader';
-import json from './parser';
+
 import GameSavingLoader from './loader';
 
-async function main() {
-  try {
-  return await GameSavingLoader.load()
-  } catch (error) {
-    console.log(error);
-  }
-}
+(async function main() {
+  const gameSaving = await GameSavingLoader.load()
 
-const gameSaving = main(); 
+  console.log(gameSaving)
+}())
+
+ 
 

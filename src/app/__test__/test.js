@@ -1,24 +1,16 @@
-import read from '../reader';
-import json from '../parser';
 import GameSavingLoader from '../loader';
-
-const gameSavingLoader = new GameSavingLoader();
 
 test('Testing async await', async () => {
         try{
-            await gameSavingLoader.load();
-            const saving = await read();
-            await gameSavingLoader.load();
-            const jsonString = await json(saving);
-            await gameSavingLoader.load()
-            gameSavingLoader.gameSaving = JSON.parse(jsonString)
+            const gameSaving = await GameSavingLoader.load();
+            return gameSaving
         }
         catch(error) {
             console.log(error)
         }
 
 
-    expect(gameSavingLoader.gameSaving).toEqual(
+    expect(gameSaving).toEqual(
         {
             id:9,
             created:1546300800,
@@ -28,5 +20,5 @@ test('Testing async await', async () => {
                 level:10,
                 points:2000}
         }      
-    )
+    ) 
 })
